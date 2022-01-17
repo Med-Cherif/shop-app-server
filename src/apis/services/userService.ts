@@ -62,8 +62,24 @@ class UserService {
         }
     }
 
-    getUserByEmail(email: string) {
-        return UserModel.findOne({ email })
+    async getUserByEmail(email: string) {
+        try {
+            const user = await UserModel.findOne({ email });
+            if (!user) return null;
+            return user;
+        } catch {
+            throw new Error();
+        }
+    }
+
+    async getUserById(userId: string) {
+        try {  
+            const user = await UserModel.findById(userId)
+            if (!user) return null;
+            return user
+        } catch {
+            throw new Error()
+        }
     }
 }
 
