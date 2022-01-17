@@ -4,22 +4,28 @@ import TokenService from "../services/tokenService";
 import UserService from "../services/userService";
 import UserValidation from "../validation/userValidation";
 import { sendEmail } from "../helpers/sendMail";
-import { randomBytes } from "crypto";
-import UserModel from "../models/User";
+import { getRedisClient } from "../../db";
 
+// const client = getRedisClient()
 
 class UserController {
     userValidation: UserValidation;
     userService: UserService;
     tokenService: TokenService;
+    client: ReturnType<typeof getRedisClient>;
+    
     
     constructor() {
-        this.userValidation = new UserValidation()
-        this.userService = new UserService()
-        this.tokenService = new TokenService()
-        this.signup = this.signup.bind(this)
-        this.signin = this.signin.bind(this)
-        this.activeAccount = this.activeAccount.bind(this)
+        this.userValidation = new UserValidation();
+        this.userService = new UserService();
+        this.tokenService = new TokenService();
+        this.client = getRedisClient();
+        this.signup = this.signup.bind(this);
+        this.signin = this.signin.bind(this);
+        this.signout = this.signout.bind(this);
+        this.activeAccount = this.activeAccount.bind(this);
+        this.resendActivateAccountLink = this.resendActivateAccountLink.bind(this);
+        this.createNewAccessToken = this.createNewAccessToken.bind(this);
     }
 
     async signup (req: Request, res: Response, next: NextFunction) {
@@ -51,8 +57,12 @@ class UserController {
                     console.log(error)
                 })
 
+            
             const accessToken = generateAccessToken(response)
             const refreshToken = generateRefreshToken(response)
+                
+            await this.client.connect()
+            await this.client.SETEX(response._id.toString(), 2592000, refreshToken);
 
             res.status(201).json({
                 success: true, accessToken, refreshToken
@@ -78,13 +88,30 @@ class UserController {
                 const tokenResponse = await this.tokenService.createConfirmationToken(response._id);
                 await sendEmail(response.email, tokenResponse.token)
             }
+
             const accessToken = generateAccessToken(response)
             const refreshToken = generateRefreshToken(response)
+
+            await this.client.connect()
+            await this.client.SETEX(response._id.toString(), 2592000, refreshToken)
 
             res.status(200).json({
                 success: true, accessToken, refreshToken
             })
         } catch (error) {
+            console.log(error)
+            next({})
+        }
+    }
+
+    async signout(req: Request, res: Response, next: NextFunction) {
+        const { userId } = req.params;
+        try {
+            await this.client.connect()
+            await this.client.DEL(userId)
+            res.sendStatus(204)
+        } catch (err) {
+            console.log(err)
             next({})
         }
     }
@@ -101,10 +128,54 @@ class UserController {
             await user.save()
             const accessToken = generateAccessToken(user)          
             const refreshToken = generateRefreshToken(user)
+            await this.client.connect()
+            await this.client.SETEX(user._id.toString(), 2592000, refreshToken)
             res.status(200).json({
                 success: true, accessToken, refreshToken
             })
         } catch (error) {
+            next({})
+        }
+    }
+
+    async resendActivateAccountLink(req: Request, res: Response, next: NextFunction){
+        const { email } = req.params;
+        if (!email) return next({ statuscode: 404, message: "Email not found" })
+        try {
+            const userResponse = await this.userService.getUserByEmail(email);
+            if (!userResponse) return next({ statuscode: 404, message: "User not found" })
+            const tokenResponse = await this.tokenService.createConfirmationToken(userResponse._id);
+            await sendEmail(email, tokenResponse.token)
+            res.sendStatus(200)
+        } catch (error) {
+            console.log(error)
+            next({})
+        }
+    }
+
+    async createNewAccessToken(req: Request, res: Response, next: NextFunction) {
+        // get data from another middleware
+        const { refreshToken, decodedData } = (req as any).user;
+        
+        try {
+            
+            await this.client.connect()
+            const refreshTokenResult = await this.client.GET(decodedData._id);
+            if (!refreshTokenResult || (refreshToken !== refreshTokenResult)) {
+                return next({ statuscode: 400 })
+            }
+
+            const accessToken = generateAccessToken(decodedData)
+
+            res.status(200).json({
+                success: true,
+                accessToken,
+                refreshToken: refreshTokenResult
+            })
+
+            
+        } catch (error) {
+            console.log(error)
             next({})
         }
     }
