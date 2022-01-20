@@ -8,8 +8,8 @@ const userService = new UserController()
 router.post('/signup', userService.signup)
 router.post('/signin', userService.signin)
 router.get('/signout/:userId', userService.signout)
-router.get('/activate-account/:email/:token', userService.activeAccount)
-router.get('/resend-activate-link/:email', userService.resendActivateAccountLink)
-router.post('/access-token', testRefreshToken, userService.createNewAccessToken)
+router.get('/account/confirmation/:email/:token', userService.activeAccount)
+router.get('/confirmation-token/:email', userService.resendActivateAccountLink)
+router.post('/refresh-token', testRefreshToken, userService.createNewAccessToken)
 
 export default router;
