@@ -56,6 +56,7 @@ class UserController {
                 .catch((error) => {
                     console.log(error)
                 })
+                
 
             
             const accessToken = generateAccessToken(response)
@@ -71,6 +72,9 @@ class UserController {
        } catch (error) {
            console.log(error)
            next({})
+       } finally {
+           console.log("finally")
+            await this.client.disconnect()
        }
     }
 
@@ -101,6 +105,8 @@ class UserController {
         } catch (error) {
             console.log(error)
             next({})
+        } finally {
+            await this.client.disconnect()
         }
     }
 
@@ -113,6 +119,8 @@ class UserController {
         } catch (err) {
             console.log(err)
             next({})
+        } finally {
+            await this.client.disconnect()
         }
     }
 
@@ -122,10 +130,12 @@ class UserController {
         try {
             const user = await this.userService.getUserByEmail(email);
             if (!user) return next({ statuscode: 404, message: "User not found" })
+            if (user.isActive) return next({ statuscode: 409, message: "Your account is already active" })
             const token = await this.tokenService.getToken(confirmationToken, user._id)
             if (!token) return next({ statuscode: 404, message: "Token may expired, resend another one by clicking the resend link button" })
             user.isActive = true
-            await user.save()
+            await user.save();
+            await token.delete();
             const accessToken = generateAccessToken(user)          
             const refreshToken = generateRefreshToken(user)
             await this.client.connect()
@@ -135,6 +145,8 @@ class UserController {
             })
         } catch (error) {
             next({})
+        } finally {
+            await this.client.disconnect()
         }
     }
 
@@ -146,7 +158,7 @@ class UserController {
             if (!userResponse) return next({ statuscode: 404, message: "User not found" })
             const tokenResponse = await this.tokenService.createConfirmationToken(userResponse._id);
             await sendEmail(email, tokenResponse.token)
-            res.sendStatus(200)
+            res.sendStatus(204)
         } catch (error) {
             console.log(error)
             next({})
@@ -177,6 +189,9 @@ class UserController {
         } catch (error) {
             console.log(error)
             next({})
+
+        } finally {
+            await this.client.disconnect()
         }
     }
 

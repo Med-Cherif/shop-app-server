@@ -3,6 +3,7 @@ import { MailOptions } from "nodemailer/lib/json-transport";
 import {
     ADMIN_GOOGLE_EMAIL,
     ADMIN_GOOGLE_PASSWORD,
+    CLIENT_URL,
     OAUTH_CLIENT_ID,
     OAUTH_CLIENT_SECRET,
     OAUTH_REFRESH_TOKEN 
@@ -25,7 +26,7 @@ export const sendEmail = (userEmail: string, code: string) => {
         subject: 'Confirming your email',
         html: `
             <div style="display:flex;justify-content:center;align-items:center">
-                <a style="font-size:18px" href="http//localhost:3000/activate-account/${userEmail}/${code}">Click here to activate your account in Bibo Shop</a>
+                <a style="font-size:18px" href="${CLIENT_URL}/confirmation/${userEmail}/${code}">Click here to activate your account in Bibo Shop</a>
             </div>
         `
     }
