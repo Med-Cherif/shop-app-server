@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
 /*  example: phone
     specificOptions: {
         brand: apple,
-        marque: iphone 12,
+        model: iphone 12,
         ficheT: {
             camera: bla bla,
             ram: xx GB,
