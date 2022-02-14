@@ -15,34 +15,6 @@ const productSchema = new mongoose.Schema({
     categories: { type: Array, default: [] }
 })
 
-/*  example: phone
-    specificOptions: {
-        brand: apple,
-        model: iphone 12,
-        ficheT: {
-            camera: bla bla,
-            ram: xx GB,
-        }
-    }
-    
-    example: t-shirt
-    specificOptions: {
-        brand: adidas,
-        size: 'm',
-    }
-*/
-
-/*
-    'phones',
-    'phones & computers accessoires',
-    'computers',
-    'women clothes',
-    'man clothes',
-    'fashion',
-    'cosmetics & beauty'
-
-*/
-
 const ProductModel = mongoose.model('Product', productSchema)
 
 export default ProductModel
