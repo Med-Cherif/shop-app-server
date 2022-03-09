@@ -3,6 +3,7 @@ config()
 import express from "express";
 import cors from "cors";
 import user from "./apis/routes/userRoute";
+import product from "./apis/routes/productRoute";
 import { handleErrors } from "./apis/helpers/errorHandler";
 import { connectDB } from "./db";
 
@@ -13,6 +14,7 @@ app.use(cors())
 
 // APIs
 app.use(user)
+app.use('/api/products', product)
 
 // errors handling
 app.use(handleErrors)

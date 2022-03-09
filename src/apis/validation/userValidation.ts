@@ -1,4 +1,5 @@
-import bcrypt from "bcrypt";
+import bcrypt, { hash } from "bcrypt";
+import { randomBytes, scryptSync, timingSafeEqual } from "crypto"
 
 class UserValidation {
     error: {};
@@ -56,10 +57,17 @@ class UserValidation {
     }
 
     async hashPassword(password: string) {
+        // const salt = randomBytes(16).toString('hex');
+        // const hashedPassword = scryptSync(password, salt, 64).toString('hex');
+        // const user = { password: `${salt}:${hashedPassword}` }
         return await bcrypt.hash(password, 10)
     }
 
     async comparePassword(password: string, hashedPassword: string) {
+        // const [salt, pass] = hashedPassword.split(':');
+        // const hashedBuffer = scryptSync(password, salt, 64);
+        // const buffPass = Buffer.from(pass, 'hex');
+        // const match = timingSafeEqual(hashedBuffer, buffPass)
         return await bcrypt.compare(password, hashedPassword)
     }
 
