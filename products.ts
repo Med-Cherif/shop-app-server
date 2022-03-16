@@ -1,7 +1,6 @@
 const products = [
     {
         "name": "Apple IPhone 11 Pro Max",
-        "productCode": "A547sj",
         "productType": "phone",
         "rating": 5,
         "price": 610,
@@ -26,7 +25,6 @@ const products = [
     },
     {
         "name": "Apple IPhone 11",
-        "productCode": "A547sj",
         "productType": "phone",
         "rating": 5,
         "price": 499,
@@ -51,7 +49,6 @@ const products = [
     },
     {
         "name": "Apple IPhone 12",
-        "productCode": "A547sj",
         "productType": "phone",
         "rating": 5,
         "price": 750,
@@ -76,7 +73,6 @@ const products = [
     },
     {
         "name": "OnePlus 8 pro",
-        "productCode": "A547sj",
         "productType": "phone",
         "rating": 5,
         "price": 799,
@@ -101,10 +97,10 @@ const products = [
     },
     {
         "name": "Samsung Galaxy A52",
-        "productCode": "A547sj",
         "productType": "phone",
         "rating": 5,
         "price": 320,
+        "image": "https://firebasestorage.googleapis.com/v0/b/bibo-shop.appspot.com/o/galaxy%20a52.jpg?alt=media&token=36f5ea71-acd6-4b8a-ab7e-574acf881ea0",
         "qty": 1,
         "description": "",
         "categories": ["electronics", "phones"],
@@ -125,7 +121,6 @@ const products = [
     },
     {
         "name": "Xiaomi Redmi Note 9 Pro",
-        "productCode": "A547sj",
         "productType": "phone",
         "rating": 5,
         "price": 299,
@@ -150,7 +145,6 @@ const products = [
     },
     {
         "name": "Adidas Pant 1",
-        "productCode": "A547sj",
         "productType": "pant",
         "rating": 5,
         "price": 33,
@@ -166,7 +160,6 @@ const products = [
     },
     {
         "name": "Adidas Short 1",
-        "productCode": "A547sj",
         "productType": "short",
         "rating": 5,
         "price": 45,
@@ -182,7 +175,6 @@ const products = [
     },
     {
         "name": "Adidas T-shirt 1",
-        "productCode": "A547sj",
         "productType": "t-shirt",
         "rating": 5,
         "price": 59,
@@ -198,7 +190,6 @@ const products = [
     },
     {
         "name": "Adidas T-shirt 2",
-        "productCode": "A547sj",
         "productType": "t-shirt",
         "rating": 5,
         "price": 29,
@@ -213,8 +204,7 @@ const products = [
     },
     {
         "name": "Adidas T-shirt 3",
-        "productCode": "A547sj",
-        "productType": "T-shirt",
+        "productType": "t-shirt",
         "rating": 5,
         "price": 69,
         "qty": 1,
@@ -230,7 +220,6 @@ const products = [
 
     {
         "name": "Anti Shock for Samsung Galaxy s20 Ultra",
-        "productCode": "A547sj",
         "productType": "Anti Shock",
         "rating": 5,
         "price": 12,
@@ -246,7 +235,6 @@ const products = [
 
     {
         "name": "Anti Shock for Samsung Galaxy a30",
-        "productCode": "A547sj",
         "productType": "Anti Shock",
         "rating": 5,
         "price": 12,
@@ -262,7 +250,6 @@ const products = [
 
     {
         "name": "Anti Shock for Apple IPhone 12",
-        "productCode": "A547sj",
         "productType": "Anti Shock",
         "rating": 5,
         "price": 12,
@@ -278,7 +265,6 @@ const products = [
 
     {
         "name": "Anti Shock for Xioami Redmi note 8 pro",
-        "productCode": "A547sj",
         "productType": "Anti Shock",
         "rating": 5,
         "price": 12,
@@ -294,7 +280,6 @@ const products = [
 
     {
         "name": "Anti Shock for Samsung Galaxy s10 plus",
-        "productCode": "A547sj",
         "productType": "Anti Shock",
         "rating": 5,
         "price": 12,
@@ -310,7 +295,6 @@ const products = [
 
     {
         "name": "Anti Shock for LG V30",
-        "productCode": "A547sj",
         "productType": "Anti Shock",
         "rating": 5,
         "price": 12,
@@ -326,7 +310,6 @@ const products = [
 
     {
         "name": "Anti Shock for OnePlus 8 Pro",
-        "productCode": "A547sj",
         "productType": "Anti Shock",
         "description": "",
         "categories": ["electronics accessoires", "anti shocks"],
@@ -342,7 +325,6 @@ const products = [
 
     {
         "name": "Huawei Charger USB Type C",
-        "productCode": "A547sj",
         "productType": "Charger",
         "rating": 5,
         "price": 12,
@@ -359,7 +341,6 @@ const products = [
     },
     {
         "name": "Samsung Charger USB Micro B",
-        "productCode": "A547sj",
         "productType": "Charger",
         "rating": 5,
         "price": 12,
@@ -376,7 +357,6 @@ const products = [
     },
     {
         "name": "Samsung Charger USB Type C",
-        "productCode": "A547sj",
         "productType": "Charger",
         "rating": 5,
         "price": 12,
@@ -393,7 +373,6 @@ const products = [
     },
     {
         "name": "Apple Charger Ligntning",
-        "productCode": "A547sj",
         "productType": "Charger",
         "rating": 5,
         "price": 12,
@@ -414,7 +393,6 @@ const products = [
     
     {
         "name": "Wired Headphone Black Dragon",
-        "productCode": "A547sj",
         "productType": "Headphone",
         "rating": 5,
         "price": 12,
@@ -431,7 +409,6 @@ const products = [
 
     {
         "name": "Wireless Headphone Fresh Rabel",
-        "productCode": "A547sj",
         "productType": "Headphone",
         "rating": 5,
         "price": 12,
@@ -448,7 +425,6 @@ const products = [
 
     {
         "name": "Wired Earphone Sony",
-        "productCode": "A547sj",
         "productType": "Earphone",
         "rating": 5,
         "price": 12,
@@ -465,7 +441,6 @@ const products = [
 
     {
         "name": "Wireless Headphone Sony",
-        "productCode": "A547sj",
         "productType": "Headphone",
         "rating": 5,
         "price": 12,
@@ -484,7 +459,6 @@ const products = [
 
     {
         "name": "Gucci Bloom parfum For women",
-        "productCode": "A547sj",
         "productType": "parfum",
         "rating": 5,
         "price": 12,
@@ -500,7 +474,6 @@ const products = [
 
     {
         "name": "Chanel Paris N*5 parfum For women",
-        "productCode": "A547sj",
         "productType": "parfum",
         "rating": 5,
         "price": 12,
@@ -516,7 +489,6 @@ const products = [
 
     {
         "name": "Blue de Chanel parfum For men",
-        "productCode": "A547sj",
         "productType": "parfum",
         "rating": 5,
         "price": 129,
@@ -532,7 +504,6 @@ const products = [
 
     {
         "name": "Hugo Boss parfum For men",
-        "productCode": "A547sj",
         "productType": "parfum",
         "rating": 5,
         "price": 149,
@@ -548,7 +519,6 @@ const products = [
 
     {
         "name": "Black Gold parfum For men",
-        "productCode": "A547sj",
         "productType": "parfum",
         "rating": 5,
         "price": 99,
@@ -564,7 +534,6 @@ const products = [
 
     {
         "name": "Festina Silver Watch for men",
-        "productCode": "A547sj",
         "productType": "Watch",
         "rating": 5,
         "price": 399,
@@ -581,7 +550,6 @@ const products = [
 
     {
         "name": "Megalith Watch for men",
-        "productCode": "A547sj",
         "productType": "Watch",
         "rating": 5,
         "price": 299,
@@ -598,7 +566,6 @@ const products = [
 
     {
         "name": "Fossil Watch for men",
-        "productCode": "A547sj",
         "productType": "Watch",
         "rating": 5,
         "price": 399,
@@ -614,7 +581,6 @@ const products = [
     },
     {
         "name": "7 Seven Watch for women",
-        "productCode": "A547sj",
         "productType": "Watch",
         "rating": 5,
         "price": 340,
@@ -630,7 +596,6 @@ const products = [
     },
     {
         "name": "Titan Watch for women",
-        "productCode": "A547sj",
         "productType": "Watch",
         "rating": 5,
         "price": 225,
@@ -647,7 +612,6 @@ const products = [
 
     {
         "name": "Lige Watch for women",
-        "productCode": "A547sj",
         "productType": "Watch",
         "rating": 5,
         "price": 150,
