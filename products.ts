@@ -220,7 +220,7 @@ const products = [
 
     {
         "name": "Anti Shock for Samsung Galaxy s20 Ultra",
-        "productType": "Anti Shock",
+        "productType": "anti shock",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -235,7 +235,7 @@ const products = [
 
     {
         "name": "Anti Shock for Samsung Galaxy a30",
-        "productType": "Anti Shock",
+        "productType": "anti shock",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -250,7 +250,7 @@ const products = [
 
     {
         "name": "Anti Shock for Apple IPhone 12",
-        "productType": "Anti Shock",
+        "productType": "anti shock",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -265,7 +265,7 @@ const products = [
 
     {
         "name": "Anti Shock for Xioami Redmi note 8 pro",
-        "productType": "Anti Shock",
+        "productType": "anti shock",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -280,7 +280,7 @@ const products = [
 
     {
         "name": "Anti Shock for Samsung Galaxy s10 plus",
-        "productType": "Anti Shock",
+        "productType": "anti shock",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -295,7 +295,7 @@ const products = [
 
     {
         "name": "Anti Shock for LG V30",
-        "productType": "Anti Shock",
+        "productType": "anti shock",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -310,7 +310,7 @@ const products = [
 
     {
         "name": "Anti Shock for OnePlus 8 Pro",
-        "productType": "Anti Shock",
+        "productType": "anti shock",
         "description": "",
         "categories": ["electronics accessoires", "anti shocks"],
         "price": 12,
@@ -325,7 +325,7 @@ const products = [
 
     {
         "name": "Huawei Charger USB Type C",
-        "productType": "Charger",
+        "productType": "charger",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -341,7 +341,7 @@ const products = [
     },
     {
         "name": "Samsung Charger USB Micro B",
-        "productType": "Charger",
+        "productType": "charger",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -357,7 +357,7 @@ const products = [
     },
     {
         "name": "Samsung Charger USB Type C",
-        "productType": "Charger",
+        "productType": "charger",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -373,7 +373,7 @@ const products = [
     },
     {
         "name": "Apple Charger Ligntning",
-        "productType": "Charger",
+        "productType": "charger",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -393,7 +393,7 @@ const products = [
     
     {
         "name": "Wired Headphone Black Dragon",
-        "productType": "Headphone",
+        "productType": "headphone",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -409,7 +409,7 @@ const products = [
 
     {
         "name": "Wireless Headphone Fresh Rabel",
-        "productType": "Headphone",
+        "productType": "headphone",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -425,7 +425,7 @@ const products = [
 
     {
         "name": "Wired Earphone Sony",
-        "productType": "Earphone",
+        "productType": "earphone",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -441,7 +441,7 @@ const products = [
 
     {
         "name": "Wireless Headphone Sony",
-        "productType": "Headphone",
+        "productType": "headphone",
         "rating": 5,
         "price": 12,
         "qty": 1,
@@ -534,7 +534,7 @@ const products = [
 
     {
         "name": "Festina Silver Watch for men",
-        "productType": "Watch",
+        "productType": "watch",
         "rating": 5,
         "price": 399,
         "qty": 1,
@@ -550,7 +550,7 @@ const products = [
 
     {
         "name": "Megalith Watch for men",
-        "productType": "Watch",
+        "productType": "watch",
         "rating": 5,
         "price": 299,
         "qty": 1,
@@ -566,7 +566,7 @@ const products = [
 
     {
         "name": "Fossil Watch for men",
-        "productType": "Watch",
+        "productType": "watch",
         "rating": 5,
         "price": 399,
         "qty": 1,
@@ -581,7 +581,7 @@ const products = [
     },
     {
         "name": "7 Seven Watch for women",
-        "productType": "Watch",
+        "productType": "watch",
         "rating": 5,
         "price": 340,
         "qty": 1,
@@ -596,7 +596,7 @@ const products = [
     },
     {
         "name": "Titan Watch for women",
-        "productType": "Watch",
+        "productType": "watch",
         "rating": 5,
         "price": 225,
         "qty": 1,
@@ -612,7 +612,7 @@ const products = [
 
     {
         "name": "Lige Watch for women",
-        "productType": "Watch",
+        "productType": "watch",
         "rating": 5,
         "price": 150,
         "qty": 1,
