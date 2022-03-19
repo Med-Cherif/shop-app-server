@@ -13,13 +13,9 @@ export default class ProductController {
     constructor() {
         this.productValidation = new ProductValidation();
         this.productServices = new ProductServices();
-        this.addProduct = this.addProduct.bind(this);
-        this.addMultipleProducts = this.addMultipleProducts.bind(this);
-        this.getProductsWithSearch = this.getProductsWithSearch.bind(this);
-        this.getProductsWithFilter = this.getProductsWithFilter.bind(this);
     }
 
-    async addProduct(req: Request, res: Response, next: NextFunction) {
+    addProduct = async (req: Request, res: Response, next: NextFunction) => {
         const { product } = req.body;
         const error = this.productValidation.isValidProduct(product)
         if (error) return next({ statuscode: 400, message: error });
@@ -36,7 +32,7 @@ export default class ProductController {
         }
     }
 
-    async getSingleProduct(req: Request, res: Response, next: NextFunction) {
+    getSingleProduct = async (req: Request, res: Response, next: NextFunction) => {
         const { productID } = req.params;
         if (!productID) return next({ statuscode: 400, message: "Product ID is Not provided" });
 
@@ -55,7 +51,7 @@ export default class ProductController {
         }
     }
 
-    async addMultipleProducts(req: Request, res: Response, next: NextFunction) {
+    addMultipleProducts = async (req: Request, res: Response, next: NextFunction) => {
         const { products }: { products: any[] } = req.body;
         
         for (let i = 0; i < products.length; i++) {
@@ -77,13 +73,25 @@ export default class ProductController {
         }
     }
 
-    async getProductsWithSearch(req: Request, res: Response, next: NextFunction) {
-        const { keyword } = req.query;
+    getProducts = async (req: Request, res: Response, next: NextFunction) => {
+        const { keyword, type, categories }: any = req.query;
 
-        if (!keyword) return res.sendStatus(400);
+        if ((!keyword && !type) || (keyword && type)) return next({ statuscode: 400 });
         
         try {
-            const products = await this.productServices.getProductsWithSearch(keyword as string);
+            let products;
+            if (keyword && (keyword as string).length > 0) {
+                products = await this.productServices.getProductsWithSearch(keyword as string);
+            }
+            else if (type === 'latest') {
+                products = await this.productServices.getLatestProducts();
+            }
+            else if (type === 'similar' && categories) {
+                products = await this.productServices.getSimilarProducts(categories)
+            }
+            
+            if (!products) return next({})
+
             res.status(200).json({
                 success: true,
                 products
@@ -94,7 +102,7 @@ export default class ProductController {
         }
     }
 
-    async getProductsWithFilter(req: Request, res: Response, next: NextFunction) {
+    getProductsWithFilter = async (req: Request, res: Response, next: NextFunction) => {
         const filter = req.query;
 
         const filterProducts =  handleFilterProduct(filter)
@@ -109,5 +117,28 @@ export default class ProductController {
             next({})
         }
     
+    }
+
+    deleteMultipleProducts = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            await this.productServices.deleteMultipleProducts();
+            res.sendStatus(204);
+        } catch (error) {
+            console.log(error);
+            next({})
+        }
+    }
+
+    deleteSingleProduct = async (req: Request, res: Response, next: NextFunction) => {
+        const { productID } = req.params;
+
+        if (!productID) return next({ statuscode: 404, message: "Product ID not found" });
+
+        try {
+            await this.productServices.deleteSingleProduct(productID);
+            res.sendStatus(204);
+        } catch (error) {
+            next({})
+        }
     }
 }

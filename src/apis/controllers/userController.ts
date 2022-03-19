@@ -20,15 +20,9 @@ class UserController {
         this.userService = new UserService();
         this.tokenService = new TokenService();
         this.client = getRedisClient();
-        this.signup = this.signup.bind(this);
-        this.signin = this.signin.bind(this);
-        this.signout = this.signout.bind(this);
-        this.activeAccount = this.activeAccount.bind(this);
-        this.resendActivateAccountLink = this.resendActivateAccountLink.bind(this);
-        this.createNewAccessToken = this.createNewAccessToken.bind(this);
     }
 
-    async signup (req: Request, res: Response, next: NextFunction) {
+    signup = async (req: Request, res: Response, next: NextFunction) => {
        const { email, username, password, confirmPassword, name } = req.body;
        if (!email || !username || !password || !confirmPassword || !name) {
             return next({ statuscode: 400, message: "All field are required" })
@@ -78,7 +72,7 @@ class UserController {
        }
     }
 
-    async signin (req: Request, res: Response, next: NextFunction) {
+    signin = async (req: Request, res: Response, next: NextFunction) => {
         const { preferedField, password } = req.body;
         if (!preferedField || !password) {
             return next({ statuscode: 400, message: "All field are required" })
@@ -110,7 +104,7 @@ class UserController {
         }
     }
 
-    async signout(req: Request, res: Response, next: NextFunction) {
+    signout = async (req: Request, res: Response, next: NextFunction) => {
         const { userId } = req.params;
         try {
             await this.client.connect()
@@ -124,7 +118,7 @@ class UserController {
         }
     }
 
-    async activeAccount(req: Request, res: Response, next: NextFunction) {
+    activeAccount = async (req: Request, res: Response, next: NextFunction) => {
         const { email, token: confirmationToken } = req.params
         if (!confirmationToken || !email) return next({ statuscode: 404 })
         try {
@@ -150,7 +144,7 @@ class UserController {
         }
     }
 
-    async resendActivateAccountLink(req: Request, res: Response, next: NextFunction){
+    resendActivateAccountLink = async (req: Request, res: Response, next: NextFunction) => {
         const { email } = req.params;
         if (!email) return next({ statuscode: 404, message: "Email not found" })
         try {
@@ -165,7 +159,7 @@ class UserController {
         }
     }
 
-    async createNewAccessToken(req: Request, res: Response, next: NextFunction) {
+    createNewAccessToken = async(req: Request, res: Response, next: NextFunction) => {
         // get data from another middleware
         const { refreshToken, decodedData } = (req as any).user;
         

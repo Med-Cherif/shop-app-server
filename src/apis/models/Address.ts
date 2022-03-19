@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
-const addressSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
     street: String,
     country: String,
     city: String,
     postalCode: String
 })
 
-const AddressModel = mongoose.model('Address', addressSchema)
+const AddressModel = mongoose.model('Address', schema)
 
 export default AddressModel

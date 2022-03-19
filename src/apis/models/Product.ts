@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { randomBytes } from "crypto";
 import { generateNumber } from "../helpers/generateNumbers";
 
-const productSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
     name: { type: String, required: true },
     productType: { type: String, required: true },
     productCode: String,
@@ -18,6 +18,6 @@ const productSchema = new mongoose.Schema({
     },
 })
 
-const ProductModel = mongoose.model('Product', productSchema);
+const ProductModel = mongoose.model('Product', schema);
 
 export default ProductModel;

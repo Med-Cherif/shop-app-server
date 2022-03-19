@@ -3,12 +3,16 @@ import ProductController from "../controllers/productController";
 import { testRefreshToken } from "../middlewares/private"
 
 const router = express.Router()
-const userService = new ProductController()
+const productController = new ProductController()
 
-router.get('/', userService.getProductsWithSearch);
-router.get('/get/filter', userService.getProductsWithFilter);
-router.get('/:productID', userService.getSingleProduct);
-router.post('/', userService.addProduct);
-router.post('/multiple', userService.addMultipleProducts);
+router.get('/', productController.getProducts);
+router.get('/filter', productController.getProductsWithFilter);
+router.get('/single/:productID', productController.getSingleProduct);
+
+router.post('/', productController.addProduct);
+router.post('/multiple', productController.addMultipleProducts);
+
+router.delete('/', productController.deleteMultipleProducts)
+router.delete('/:productID', productController.deleteSingleProduct)
 
 export default router;

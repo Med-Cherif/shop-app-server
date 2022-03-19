@@ -2,6 +2,10 @@ import ProductModel from "../models/Product";
 
 class ProductServices {
 
+    getLatestProducts() {
+        return ProductModel.find({}).sort({ createdAt: -1 }).select('_id image name price rating').limit(8);
+    }
+
     getProductsWithSearch(keyword: string) {
         const regexWord = new RegExp(keyword, 'i')
         let words = keyword.split(' ');
@@ -18,8 +22,13 @@ class ProductServices {
                 { description: regexWord },
                 { categories: { $all: regexArray } },
                 { 'features.brand': regexWord },
+                { 'features.model': regexWord },
             ]
         })
+    }
+
+    getSimilarProducts(categories: string[]) {
+        return ProductModel.find({ categories: { $all: categories } })
     }
 
     getProductsWithFilter(filter: any) {
@@ -37,8 +46,14 @@ class ProductServices {
     addMultipleProduct(products: any[]) {
         return ProductModel.insertMany(products)
     }
+
+    deleteSingleProduct(productID: string) {
+        return ProductModel.findByIdAndDelete(productID);
+    }
+
+    deleteMultipleProducts(query: any = {}) {
+        return ProductModel.deleteMany(query);
+    }
 }
 
 export default ProductServices
-
-// { username: new RegExp('^' + search, 'i') },
