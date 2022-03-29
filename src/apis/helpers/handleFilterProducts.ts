@@ -1,13 +1,13 @@
 export const handleFilterProduct = (filter: { [field: string]: any }) => {
-    const { category, productType, minprice, maxprice } = filter;
+    const { category, productType, minprice, maxprice, ...rest } = filter;
 
     let data: { [field: string]: any } = {};
 
-    if (category) {
+    if (category && category !== 'all') {
         data.categories = { $all: category.split(' ') };
     }
 
-    if (productType) {
+    if (productType && productType !== 'all') {
         data.productType = productType
     }
 
@@ -26,6 +26,13 @@ export const handleFilterProduct = (filter: { [field: string]: any }) => {
             data.price.$gte = parseFloat(minprice);
         }
     }
+
+    /**
+     * rest = {
+     *  color: x,
+     *  size: y
+     * }
+     */
 
     return data;
 

@@ -20,7 +20,7 @@ const products = [
             "Selfie Camera": "12 MP",
             "Main Camera": "12 MP",
             "Battery": "3969 mAh",
-            "color": "black"
+            "color": "pink"
         }
     },
     {
@@ -44,7 +44,7 @@ const products = [
             "Selfie Camera": "12 MP",
             "Main Camera": "12 MP",
             "Battery": "3110 mAh",
-            "color": "black"
+            "color": "green"
         }
     },
     {
@@ -68,7 +68,7 @@ const products = [
             "Selfie Camera": "12 MP",
             "Main Camera": "12 MP",
             "Battery": "2815 mAh",
-            "color": "black"
+            "color": "grey"
         }
     },
     {
@@ -77,7 +77,7 @@ const products = [
         "rating": 5,
         "price": 799,
         "qty": 1,
-        "image": "https://firebasestorage.googleapis.com/v0/b/bibo-shop.appspot.com/o/iphone12.jpg?alt=media&token=673dd7f3-2a15-4b4c-914c-4acb4b8115bc",
+        "image": "https://firebasestorage.googleapis.com/v0/b/bibo-shop.appspot.com/o/for-oneplus-8pro.png?alt=media&token=5ebee44a-2fdf-403f-8583-509deee151c5",
         "description": "One plus 8 Pro max black color 256GB 8GB RAM",
         "categories": ["electronics", "phones"],
         "features": {
@@ -92,7 +92,7 @@ const products = [
             "Selfie Camera": "16 MP",
             "Main Camera": "48 MP, 8 MP, 48 MP, 5 MP",
             "Battery": "4510 mAh",
-            "color": "black"
+            "color": "white"
         }
     },
     {
@@ -116,7 +116,7 @@ const products = [
             "Selfie Camera": "32 MP",
             "Main Camera": "64 MP, 12 MP, 5 MP, 5 MP",
             "Battery": "4500 mAh",
-            "color": "black"
+            "color": "blue"
         }
     },
     {
@@ -140,7 +140,7 @@ const products = [
             "Selfie Camera": "16 MP",
             "Main Camera": "64 MP, 8 MP, 8 MP, 2 MP",
             "Battery": "6020 mAh",
-            "color": "black"
+            "color": "blue"
         }
     },
     {
@@ -170,7 +170,7 @@ const products = [
         "features": {
             "brand": "adidas",
             "size": "s",
-            "color": "white"
+            "color": "grey"
         }
     },
     {
@@ -381,7 +381,7 @@ const products = [
         "description": "",
         "categories": ["electronics accessoires", "chargers"],
         "features": {
-            "brand": "huawei",
+            "brand": "apple",
             "cableType": "ligntning",
             "voltage": 10,
             "current": 2
@@ -465,7 +465,7 @@ const products = [
         "qty": 1,
         "image": "https://firebasestorage.googleapis.com/v0/b/bibo-shop.appspot.com/o/gucci-blom-woman.jpeg?alt=media&token=b0df8a29-697a-43d6-bb93-94705046464d",
         "description": "Gucci Bloom Women parfum with pink bottle has 90ml",
-        "categories": ["cosmetics and beauty & fashion", "women", "parfums"],
+        "categories": ["cosmetics and beauty", "fashion", "women", "parfums"],
         "features": {
             "brand": "gucci",
             "capacity": 90
@@ -480,7 +480,7 @@ const products = [
         "qty": 1,
         "image": "https://firebasestorage.googleapis.com/v0/b/bibo-shop.appspot.com/o/chanel-woman.png?alt=media&token=c0c321f8-5ee9-4198-9c51-1df17465a6ae",
         "description": "Chanel Paris Women parfum has 90ml",
-        "categories": ["cosmetics and beauty & fashion", "women", "parfums"],
+        "categories": ["cosmetics and beauty", "fashion", "women", "parfums"],
         "features": {
             "brand": "chanel",
             "capacity": 90
@@ -495,7 +495,7 @@ const products = [
         "qty": 1,
         "image": "https://firebasestorage.googleapis.com/v0/b/bibo-shop.appspot.com/o/bleu-de-chanel-parfum-man.png?alt=media&token=9385ead8-f067-4a1e-9c7a-0174d15cfff9",
         "description": "Blue de Chanel Men parfum has 60ml",
-        "categories": ["cosmetics and beauty & fashion", "men", "parfums"],
+        "categories": ["cosmetics and beauty", "fashion", "men", "parfums"],
         "features": {
             "brand": "blue de chanel",
             "capacity": 60
@@ -510,7 +510,7 @@ const products = [
         "qty": 1,
         "image": "https://firebasestorage.googleapis.com/v0/b/bibo-shop.appspot.com/o/boss-man.jpg?alt=media&token=8d171cc5-14be-4837-95f4-0613f9707227",
         "description": "Hugo boss Men parfum has 70ml",
-        "categories": ["cosmetics and beauty & fashion", "men", "parfums"],
+        "categories": ["cosmetics and beauty", "fashion", "men", "parfums"],
         "features": {
             "brand": "hugo boss",
             "capacity": 70
@@ -525,7 +525,7 @@ const products = [
         "qty": 1,
         "image": "https://firebasestorage.googleapis.com/v0/b/bibo-shop.appspot.com/o/black-gold-man.jpg?alt=media&token=c6735062-9e8c-4f5a-acd9-806e90997553",
         "description": "Black Gold Men parfum has 30ml",
-        "categories": ["cosmetics and beauty & fashion", "men", "parfums"],
+        "categories": ["cosmetics and beauty", "fashion", "men", "parfums"],
         "features": {
             "brand": "miss dior",
             "capacity": 30

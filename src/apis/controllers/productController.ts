@@ -103,9 +103,13 @@ export default class ProductController {
     }
 
     getProductsWithFilter = async (req: Request, res: Response, next: NextFunction) => {
+        
         const filter = req.query;
 
         const filterProducts =  handleFilterProduct(filter)
+
+        console.log(filter)
+        console.log(filterProducts)
 
         try {
             const products = await this.productServices.getProductsWithFilter(filterProducts)
@@ -117,6 +121,36 @@ export default class ProductController {
             next({})
         }
     
+    }
+
+    getFeatures = async (req: Request, res: Response, next: NextFunction) => {
+        const { category, productType } = req.query;
+
+        if (!category && !productType) return res.sendStatus(200);
+
+        let features: any = {}
+
+        if (!productType && category) {
+            const param = {
+                categories: { $all: (category as string).split(' ') }
+            }
+            features = await this.productServices.getFeatures(param);
+        }
+
+        if (category && productType) {
+            const param = { 
+                $or: [
+                    { categories: { $all: [category] } },
+                    { productType },
+                ]
+            }
+            features = await this.productServices.getFeatures(param);
+        }
+
+        res.status(200).json({
+            success: true,
+            features
+        });
     }
 
     deleteMultipleProducts = async (req: Request, res: Response, next: NextFunction) => {
